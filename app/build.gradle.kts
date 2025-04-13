@@ -4,6 +4,7 @@ plugins {
     id("com.google.dagger.hilt.android")
     id("jacoco")
     id("com.google.devtools.ksp") // Apply the KSP plugin here
+    id("org.sonarqube") // Apply the KSP plugin here
 }
 
 android {
@@ -89,6 +90,15 @@ android {
         }
     }
 
+    sonarqube {
+        properties {
+            property ("sonar.sources", "./src/main")
+            property ("sonar.host.url", "https://sonarcloud.io/")
+            property ("sonar.projectName", "Note-MVVM-Application")
+            property ("sonar.projectKey", "RafayKakar_Note-MVVM-Application")
+        }
+    }
+
 }
 
 dependencies {
@@ -121,4 +131,6 @@ dependencies {
     var room_version = "2.4.3"
     implementation("androidx.room:room-runtime:$room_version")
     ksp("androidx.room:room-compiler:$room_version")
+
+    implementation("org.sonarsource.scanner.maven:sonar-maven-plugin:2.7.1")
 }

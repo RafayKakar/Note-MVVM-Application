@@ -90,12 +90,15 @@ android {
         }
     }
 
-    sonarqube {
+    sonar {
         properties {
-            property ("sonar.sources", "./src/main")
-            property ("sonar.host.url", "https://sonarcloud.io/")
-            property ("sonar.projectName", "Note-MVVM-Application")
-            property ("sonar.projectKey", "RafayKakar_Note-MVVM-Application")
+            property("sonar.sources", "./src/main")
+            property("sonar.tests", "./src/test")
+            property("sonar.host.url", "https://sonarcloud.io")
+            property("sonar.projectName", "Note-MVVM-Application")
+            property("sonar.projectKey", "RafayKakar_Note-MVVM-Application")
+            property("sonar.organization", "rafaykakar")
+            property("sonar.coverage.jacoco.xmlReportPaths", "build/reports/jacoco/test/jacocoTestReport.xml")
         }
     }
 

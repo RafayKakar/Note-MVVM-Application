@@ -5,7 +5,11 @@ import com.rafaykakar.notetakingapplication.database.DBDataConverter
 import java.util.*
 
 
-@Database(entities = [NoteEntity::class], version = 1)
+@Database(
+      entities = [NoteEntity::class],
+      version = 1,
+      exportSchema = true
+)
 @TypeConverters(DBDataConverter::class)
 abstract class AppDatabase : RoomDatabase() {
       abstract fun notesDao():NotesDao

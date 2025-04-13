@@ -124,7 +124,7 @@ dependencies {
     ksp("com.google.dagger:hilt-compiler:2.51.1")
 
     //Viewmodel
-    var lifecycle_version = "2.4.0"
+    var lifecycle_version = "2.8.7"
     implementation("androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
 

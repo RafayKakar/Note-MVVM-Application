@@ -112,9 +112,9 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     //UI
-    implementation("com.google.android.material:material:1.1.0")
-    implementation("com.intuit.sdp:sdp-android:1.0.6")
-    implementation("androidx.cardview:cardview:1.0.0")
+    implementation(libs.material.v110)
+    implementation("com.intuit.sdp:sdp-android:1.1.0")
+    implementation(libs.androidx.cardview)
 
     // Hilt
     implementation("com.google.dagger:hilt-android:2.51.1")
@@ -124,8 +124,6 @@ dependencies {
     var lifecycle_version = "2.4.0"
     implementation("androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
-    implementation("androidx.fragment:fragment-ktx:1.3.2")
-    implementation("androidx.activity:activity-ktx:1.3.1")
 
     //Room
     var room_version = "2.4.3"

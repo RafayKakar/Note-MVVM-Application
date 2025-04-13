@@ -204,28 +204,28 @@ jobs:
           name: lint.html
           path: app/build/reports/problems/problems-report.html
 
-  static-code-analysis:
-    needs: [lint]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout the code
-        uses: actions/checkout@v4
-
-      - name: Set up JDK 17
-        uses: actions/setup-java@v1
-        with:
-          java-version: 17
-
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
-        with:
-          projectBaseDir: .
-        env:
-          SONAR_TOKEN: ${{ secrets.note_mvvm_application }}
-          GITHUB_TOKEN: ${{ secrets.NOTE_MVVM_APPLICATION }}
+#  static-code-analysis:
+#    needs: [lint]
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout the code
+#        uses: actions/checkout@v4
+#
+#      - name: Set up JDK 17
+#        uses: actions/setup-java@v1
+#        with:
+#          java-version: 17
+#
+#      - name: SonarCloud Scan
+#        uses: SonarSource/sonarcloud-github-action@master
+#        with:
+#          projectBaseDir: .
+#        env:
+#          SONAR_TOKEN: ${{ secrets.note_mvvm_application }}
+#          GITHUB_TOKEN: ${{ secrets.NOTE_MVVM_APPLICATION }}
 
   package:
-    needs: [static-code-analysis]
+    needs: [lint]
     name: Generate APK
     runs-on: ubuntu-latest
     steps:

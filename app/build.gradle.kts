@@ -117,8 +117,8 @@ dependencies {
     implementation("androidx.cardview:cardview:1.0.0")
 
     // Hilt
-    implementation("com.google.dagger:hilt-android:2.54")
-    ksp("com.google.dagger:hilt-compiler:2.54")
+    implementation("com.google.dagger:hilt-android:2.51.1")
+    ksp("com.google.dagger:hilt-compiler:2.51.1")
 
     //Viewmodel
     var lifecycle_version = "2.4.0"

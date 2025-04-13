@@ -60,41 +60,42 @@ jobs:
 #          name: instrumentation_test_report
 #          path: app/build/reports/androidTests/connected/
 ##
+#  static-code-analysis:
+#    needs: [lint]
+##    if: ${{ !github.event.act }}
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout the code
+#        uses: actions/checkout@v4
+#
+#      - name: set up JDK 17
+#        uses: actions/setup-java@v1
+#        with:
+#          java-version: 17
+#
+#      - name: SonarCloud Scan
+#        run: ./gradlew sonarqube -Dsonar.login=${{ secrets.note_mvvm_application }}
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.NOTE_MVVM_APPLICATION }}
+
+
   static-code-analysis:
-    needs: [lint]
-#    if: ${{ !github.event.act }}
+    needs: [ lint ]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the code
         uses: actions/checkout@v4
 
-      - name: set up JDK 17
-        uses: actions/setup-java@v1
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
         with:
+          distribution: 'temurin'
           java-version: 17
 
       - name: SonarCloud Scan
-        run: ./gradlew sonarqube -Dsonar.login=${{ secrets.note_mvvm_application }}
+        run: ./gradlew sonar -Dsonar.login=${{ secrets.SONAR_TOKEN }}
         env:
-          GITHUB_TOKEN: ${{ secrets.NOTE_MVVM_APPLICATION }}
-
-
-          #  static-code-analysis:
-          #    needs: [unit-test] # <-- Removed instrumentation-test
-          #    runs-on: ubuntu-latest
-          #    steps:
-          #      - name: Checkout the code
-          #        uses: actions/checkout@v4
-          #
-          #      - name: Set up JDK 17
-          #        uses: actions/setup-java@v1
-          #        with:
-          #          java-version: 17
-          #
-          #      - name: SonarCloud Scan
-          #        run: ./gradlew sonar -Dsonar.login=${{ secrets.NOTE_MVVM_APPLICATION }}
-          #        env:
-          #          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 
   package:

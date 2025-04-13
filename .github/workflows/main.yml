@@ -1,24 +1,24 @@
-#name: CI
-#on:
-#  push:
-#    branches: [ master ]
-#  pull_request:
-#    branches: [ master ]
-#  workflow_dispatch:
-#
-#jobs:
-#  lint:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Checkout the code
-#        uses: actions/checkout@v4
-#
-#      - name: Upload html test report
-#        uses: actions/upload-artifact@v4
-#        with:
-#          name: lint.html
-#          path: app/build/reports/problems/problems-report.html
-#
+name: CI
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v4
+
+      - name: Upload html test report
+        uses: actions/upload-artifact@v4
+        with:
+          name: lint.html
+          path: app/build/reports/problems/problems-report.html
+
 #  unit-test:
 #    needs: [lint]
 #    runs-on: ubuntu-latest
@@ -77,30 +77,31 @@
 #        run: ./gradlew sonar -Dsonar.login=${{ secrets.NOTE_MVVM_APPLICATION }}
 #        env:
 #          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#
-#
-#  package:
+
+
+  package:
 #    needs: [static-code-analysis]
-#    name: Generate APK
-##    if: ${{ !github.event.act }}
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Checkout the code
-#        uses: actions/checkout@v4
-#
-#      - name: set up JDK 17
-#        uses: actions/setup-java@v1
-#        with:
-#          java-version: 17
-#
-#      - name: Build debug APK
-#        run: ./gradlew assembleDebug --stacktrace
-#
-#      - name: Upload APK
-#        uses: actions/upload-artifact@v4
-#        with:
-#          name: expense-manager.apk
-#          path: app/build/outputs/apk/debug/app-debug.apk
+    needs: [lint]
+    name: Generate APK
+#    if: ${{ !github.event.act }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v4
+
+      - name: set up JDK 17
+        uses: actions/setup-java@v1
+        with:
+          java-version: 17
+
+      - name: Build debug APK
+        run: ./gradlew assembleDebug --stacktrace
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: note_mvvm_application.apk
+          path: app/build/outputs/apk/debug/app-debug.apk
 
 
 #New-1------------------
@@ -183,26 +184,26 @@
 
 #New-2------------------
 
-name: CI
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
-  workflow_dispatch:
-
-jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout the code
-        uses: actions/checkout@v4
-
-      - name: Upload html test report
-        uses: actions/upload-artifact@v4
-        with:
-          name: lint.html
-          path: app/build/reports/problems/problems-report.html
+#name: CI
+#on:
+#  push:
+#    branches: [ master ]
+#  pull_request:
+#    branches: [ master ]
+#  workflow_dispatch:
+#
+#jobs:
+#  lint:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout the code
+#        uses: actions/checkout@v4
+#
+#      - name: Upload html test report
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: lint.html
+#          path: app/build/reports/problems/problems-report.html
 
 #  static-code-analysis:
 #    needs: [lint]
@@ -223,26 +224,26 @@ jobs:
 #        env:
 #          SONAR_TOKEN: ${{ secrets.note_mvvm_application }}
 #          GITHUB_TOKEN: ${{ secrets.NOTE_MVVM_APPLICATION }}
-
-  package:
-    needs: [lint]
-    name: Generate APK
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout the code
-        uses: actions/checkout@v4
-
-      - name: Set up JDK 17
-        uses: actions/setup-java@v1
-        with:
-          java-version: 17
-
-      - name: Build debug APK
-        run: ./gradlew assembleDebug --stacktrace
-
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: expense-manager.apk
-          path: app/build/outputs/apk/debug/app-debug.apk
+#
+#  package:
+#    needs: [lint]
+#    name: Generate APK
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout the code
+#        uses: actions/checkout@v4
+#
+#      - name: Set up JDK 17
+#        uses: actions/setup-java@v1
+#        with:
+#          java-version: 17
+#
+#      - name: Build debug APK
+#        run: ./gradlew assembleDebug --stacktrace
+#
+#      - name: Upload APK
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: note_mvvm_application.apk
+#          path: app/build/outputs/apk/debug/app-debug.apk
 

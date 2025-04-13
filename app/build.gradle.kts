@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     id("com.google.dagger.hilt.android")
+    id("jacoco")
     id("com.google.devtools.ksp") // Apply the KSP plugin here
 }
 
@@ -27,6 +28,14 @@ android {
                 "proguard-rules.pro"
             )
         }
+        debug {
+           isTestCoverageEnabled=true
+        }
+    }
+
+    testOptions {
+        animationsDisabled =true
+        unitTests.isReturnDefaultValues = true
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -41,6 +50,45 @@ android {
         dataBinding = true
         buildConfig = true
     }
+
+    tasks.register<JacocoReport>("jacocoTestReport") {
+        dependsOn("testDebugUnitTest", "createDebugCoverageReport")
+
+        val fileFilter = listOf(
+            "**/R.class",
+            "**/R$*.class",
+            "**/BuildConfig.*",
+            "**/Manifest*.*",
+            "**/*Test*.*",
+            "android/**/*.*"
+        )
+
+        val debugTree = fileTree(
+            mapOf(
+                "dir" to "$buildDir/intermediates/classes/debug",
+                "excludes" to fileFilter
+            )
+        )
+
+        val mainSrc = "$projectDir/src/main/java"
+
+        sourceDirectories.setFrom(files(mainSrc))
+        classDirectories.setFrom(files(debugTree))
+
+        executionData.setFrom(fileTree(buildDir).apply {
+            include(
+                "jacoco/testDebugUnitTest.exec",
+                "outputs/code-coverage/connected/*coverage.ec"
+            )
+        })
+
+        reports {
+            html.required.set(true)
+            xml.required.set(true)
+            csv.required.set(false)
+        }
+    }
+
 }
 
 dependencies {

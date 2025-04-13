@@ -5,3 +5,12 @@ plugins {
     id("com.google.dagger.hilt.android") version ("2.56") apply false
     id("com.google.devtools.ksp") version "2.1.20-1.0.32" apply false
 }
+
+buildscript {
+    dependencies {
+        classpath ("org.jacoco:org.jacoco.core:0.8.12") // Use the latest version
+    }
+    repositories {
+        google()
+    }
+}

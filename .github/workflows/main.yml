@@ -37,7 +37,7 @@ jobs:
 
   instrumentation-test:
     needs: [unit-test]
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout the code
         uses: actions/checkout@v4
@@ -45,8 +45,10 @@ jobs:
       - name: Run espresso tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: 31
-          script: ./gradlew connectedCheck
+            api-level: 29
+            target: google_apis
+            arch: x86_64
+            script: ./gradlew connectedCheck
 
       - name: Upload test report
         uses: actions/upload-artifact@v4

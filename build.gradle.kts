@@ -4,7 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.android) apply false
     id("com.google.dagger.hilt.android") version ("2.56") apply false
     id("com.google.devtools.ksp") version "2.1.20-1.0.32" apply false
-    id("org.sonarqube") version "2.7.1" // Replace with latest scanner version number
+    id("org.sonarqube") version "3.3" // Replace with latest scanner version number
 }
 
 buildscript {

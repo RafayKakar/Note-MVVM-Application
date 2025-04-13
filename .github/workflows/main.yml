@@ -74,7 +74,7 @@ jobs:
           java-version: 17
 
       - name: SonarCloud Scan
-        run: ./gradlew sonar -Dsonar.login=${{ secrets.note_mvvm_application }}
+        run: ./gradlew sonarqube -Dsonar.login=${{ secrets.note_mvvm_application }}
         env:
           GITHUB_TOKEN: ${{ secrets.NOTE_MVVM_APPLICATION }}
 

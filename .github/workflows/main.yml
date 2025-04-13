@@ -221,8 +221,8 @@ jobs:
         with:
           projectBaseDir: .
         env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.note_mvvm_application }}
+          GITHUB_TOKEN: ${{ secrets.NOTE_MVVM_APPLICATION }}
 
   package:
     needs: [static-code-analysis]

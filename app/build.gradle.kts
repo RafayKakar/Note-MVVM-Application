@@ -133,4 +133,26 @@ dependencies {
     implementation("androidx.room:room-runtime:$room_version")
     ksp("androidx.room:room-compiler:$room_version")
 
+    testImplementation ("org.robolectric:robolectric:4.11.1")
+    testImplementation ("junit:junit:4.13.2")
+    testImplementation ("androidx.test:core:1.5.0")
+    testImplementation ("androidx.test.ext:junit:1.1.5")
+    // Mockito for Kotlin
+    testImplementation("org.mockito:mockito-core:5.14.2")
+    testImplementation("org.mockito.kotlin:mockito-kotlin:5.4.0")
+
+
+    testImplementation ("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+    androidTestImplementation("com.google.dagger:hilt-android-testing:2.50")
+    androidTestImplementation("androidx.test.espresso:espresso-intents:3.5.1")
+
+    testImplementation ("io.mockk:mockk:1.13.9")
+
+// For coroutines support
+    testImplementation ("io.mockk:mockk-android:1.13.9")
+
+    testImplementation("org.robolectric:robolectric:4.11.1")
+    testImplementation ("com.nhaarman.mockitokotlin2:mockito-kotlin:2.1.0")
+    testImplementation ("org.mockito:mockito-inline:2.21.0")
+    androidTestImplementation ("com.adevinta.android:barista:4.2.0")
 }

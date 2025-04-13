@@ -1,12 +1,19 @@
 package com.example.mynotesapplication
 
+import androidx.test.core.app.ActivityScenario
+import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.rafaykakar.notetakingapplication.activities.NoteEditorActivity
+import dagger.hilt.android.testing.HiltAndroidRule
+import junit.framework.TestCase
 
 import org.junit.Test
 import org.junit.runner.RunWith
 
 import org.junit.Assert.*
+import org.junit.Before
+import org.junit.Rule
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -21,4 +28,5 @@ class ExampleInstrumentedTest {
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
         assertEquals("com.example.mynotesapplication", appContext.packageName)
     }
+
 }

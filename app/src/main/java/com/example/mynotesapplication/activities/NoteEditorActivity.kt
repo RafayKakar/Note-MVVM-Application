@@ -71,10 +71,14 @@ class NoteEditorActivity : AppCompatActivity() {
         }
     }
 
+    override fun onStop() {
+        super.onStop()
+        addNote()
+    }
+
     override fun onBackPressed() {
         super.onBackPressed()
         //Save note on backpressed
-        addNote()
     }
 }
 

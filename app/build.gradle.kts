@@ -52,7 +52,12 @@ android {
         buildConfig = true
     }
 
+    jacoco {
+        buildToolsVersion = "0.8.13" // Define the JaCoCo version
+    }
+
     tasks.register<JacocoReport>("jacocoTestReport") {
+
         dependsOn("testDebugUnitTest", "createDebugCoverageReport")
 
         val fileFilter = listOf(

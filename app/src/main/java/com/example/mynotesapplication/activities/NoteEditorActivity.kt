@@ -18,6 +18,9 @@ import java.util.*
 @AndroidEntryPoint
 class NoteEditorActivity : AppCompatActivity() {
 
+
+
+
     lateinit var binding: ActivityNoteEditorBinding
     val viewModel by viewModels<NoteEditorViewModel>()
     var updatenoteEntity: NoteEntity? =null

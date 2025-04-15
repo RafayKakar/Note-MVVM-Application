@@ -38,20 +38,20 @@ jobs:
           name: unit_test_report
           path: app/build/reports/tests/testDebugUnitTest/
 
-  revert_commit:
-    needs: unit-test
-    if: failure()  # Only runs if unit-test fails
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Revert last commit
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git revert --no-edit HEAD
-          git push
+#  revert_commit:
+#    needs: unit-test
+#    if: failure()  # Only runs if unit-test fails
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout code
+#        uses: actions/checkout@v3
+#
+#      - name: Revert last commit
+#        run: |
+#          git config --global user.name "github-actions[bot]"
+#          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+#          git revert --no-edit HEAD
+#          git push
 
   package:
     needs: [unit-test]

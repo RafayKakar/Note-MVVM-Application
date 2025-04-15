@@ -11,7 +11,7 @@ class KonsistTests {
         Konsist.scopeFromProject()
             .files
             .filter {it.resideInPath("..activities..") }
-            .assertTrue { it.name.endsWith("Activity")  }
+            .assertTrue { it.name.endsWith("Activit")  }
     }
 
 

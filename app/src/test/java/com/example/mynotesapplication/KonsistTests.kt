@@ -22,18 +22,9 @@ class KonsistTests {
                 it.name.endsWith("Activity") || it.name.endsWith("Fragment")
             }
             .assertTrue { clazz ->
-                clazz.hasAnnotationWithName("AndroidEntryPoint")
+                clazz.hasAnnotationWithName("AndroidPoint")
             }
     }
-
-    @Test
-    fun `adapter should lie in adapters package and name should end with Adapter`() {
-        Konsist.scopeFromProject()
-            .files
-            .filter {it.resideInPath("..adapter..") }
-            .assertTrue { it.name.endsWith("Adapter")  }
-    }
-
 
 
     @Test

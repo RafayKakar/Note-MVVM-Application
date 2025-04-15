@@ -32,9 +32,9 @@ jobs:
 
 
   run-code-coverage-check:
-      runs-on: ubuntu-latest
-
-      steps:
+    needs: [ lint ]
+    runs-on: ubuntu-latest
+    steps:
         # We update our codebase
         - name: Check out code
           uses: actions/checkout@v4
@@ -75,7 +75,7 @@ jobs:
             path: build/reports/jacoco/generateJacocoCoverageReport/html
 
   unit-test:
-    needs: [ lint ]
+    needs: [ run-code-coverage-check ]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the code

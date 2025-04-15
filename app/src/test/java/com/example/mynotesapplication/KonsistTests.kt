@@ -26,7 +26,6 @@ class KonsistTests {
             }
     }
 
-
     @Test
     fun `adapter should lie in adapters package and name should end with Adapter`() {
         Konsist.scopeFromProject()

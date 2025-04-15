@@ -7,7 +7,7 @@ import org.junit.Test
 class KonsistTests {
 
     @Test
-    fun `data sources should end with DataSource or DataSourceImpl`() {
+    fun `activity should lie in activities package and name should end with Activity`() {
         Konsist.scopeFromProject()
             .files
             .filter {it.resideInPath("..activities..") }

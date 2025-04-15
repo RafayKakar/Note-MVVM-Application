@@ -14,6 +14,7 @@ class KonsistTests {
             .assertTrue { it.name.endsWith("Activity")  }
     }
 
+
     @Test
     fun `activity and fragment classes should have @AndroidEntryPoint annotation`() {
         Konsist.scopeFromProject()
@@ -25,6 +26,7 @@ class KonsistTests {
                 clazz.hasAnnotationWithName("AndroidPoint")
             }
     }
+
 
 
     @Test

@@ -11,7 +11,7 @@ class KonsistTests {
         Konsist.scopeFromProject()
             .files
             .filter {it.resideInPath("..activities..") }
-            .assertTrue { it.name.endsWith("Activit")  }
+            .assertTrue { it.name.endsWith("activity")  }
     }
 
 
@@ -26,7 +26,6 @@ class KonsistTests {
                 clazz.hasAnnotationWithName("AndroidPoint")
             }
     }
-
 
 
     @Test

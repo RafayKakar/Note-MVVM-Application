@@ -64,7 +64,7 @@ jobs:
             path: build/reports/jacoco/generateJacocoCoverageReport/html
 
   unit-test:
-    needs: [lint]
+    needs: [run-code-coverage-check]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the code

@@ -31,7 +31,7 @@ class KonsistTests {
     fun `adapter should lie in adapters package and name should end with Adapter`() {
         Konsist.scopeFromProject()
             .files
-            .filter {it.resideInPath("..adapters..") }
+            .filter {it.resideInPath("..adapter..") }
             .assertTrue { it.name.endsWith("Adapter")  }
     }
 

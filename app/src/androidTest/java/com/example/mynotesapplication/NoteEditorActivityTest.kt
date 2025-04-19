@@ -13,13 +13,8 @@ import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.rafaykakar.notetakingapplication.activities.NoteEditorActivity
-import com.rafaykakar.stickynoteapplication.database.NoteEntity
-import dagger.hilt.android.internal.modules.ApplicationContextModule
-import dagger.hilt.android.testing.HiltAndroidRule
-import dagger.hilt.android.testing.HiltAndroidTest
-import dagger.hilt.android.testing.UninstallModules
-import org.junit.Before
+import com.example.mynotesapplication.presentation.activities.NoteEditorActivity
+import com.example.mynotesapplication.adapters.NoteEntity
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith

@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mynotesapplication.R
+import com.example.mynotesapplication.adapters.NoteEntity
 import com.example.mynotesapplication.databinding.NoteItemBinding
-import com.rafaykakar.stickynoteapplication.database.NoteEntity
 
 class NotesAdapter(
     var context: Context,

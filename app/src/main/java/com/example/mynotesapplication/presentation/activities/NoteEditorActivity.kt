@@ -1,14 +1,13 @@
-package com.rafaykakar.notetakingapplication.activities
+package com.example.mynotesapplication.presentation.activities
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.mynotesapplication.R
+import com.example.mynotesapplication.adapters.NoteEntity
 import com.example.mynotesapplication.databinding.ActivityNoteEditorBinding
-import com.rafaykakar.notetakingapplication.viewmodels.NoteEditorViewModel
-import com.rafaykakar.stickynoteapplication.database.NoteEntity
+import com.rafaykakar.notetakingapplication.presentation.viewmodels.NoteEditorViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -24,8 +23,7 @@ class NoteEditorActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding =
-            DataBindingUtil.setContentView(this@NoteEditorActivity, R.layout.activity_note_editor)
+        binding = DataBindingUtil.setContentView(this@NoteEditorActivity, R.layout.activity_note_editor)
         inits()
     }
 
@@ -65,7 +63,8 @@ class NoteEditorActivity : AppCompatActivity() {
                         viewModel.addNote( NoteEntity(
                             headingEditText.text.toString(),
                             noteEditText.text.toString(),
-                            Date()))
+                            Date())
+                        )
                     }
             }
         }

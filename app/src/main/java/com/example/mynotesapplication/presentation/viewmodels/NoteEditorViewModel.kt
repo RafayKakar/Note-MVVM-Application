@@ -1,8 +1,8 @@
-package com.rafaykakar.notetakingapplication.viewmodels
+package com.rafaykakar.notetakingapplication.presentation.viewmodels
 
 import androidx.lifecycle.ViewModel
-import com.rafaykakar.stickynoteapplication.database.NoteEntity
-import com.rafaykakar.stickynoteapplication.repository.DatabaseRepository
+import com.example.mynotesapplication.adapters.NoteEntity
+import com.example.mynotesapplication.domain.adapters.DatabaseRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

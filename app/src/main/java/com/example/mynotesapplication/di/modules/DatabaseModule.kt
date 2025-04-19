@@ -1,8 +1,8 @@
-package com.rafaykakar.stickynoteapplication.modules
+package com.rafaykakar.stickynoteapplication.di.modules
 
 import android.content.Context
 import androidx.room.Room
-import com.rafaykakar.stickynoteapplication.database.AppDatabase
+import com.rafaykakar.notetakingapplication.data.database.AppDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

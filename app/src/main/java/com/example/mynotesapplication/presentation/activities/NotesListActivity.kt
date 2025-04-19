@@ -1,23 +1,21 @@
-package com.rafaykakar.notetakingapplication.activities
+package com.example.mynotesapplication.presentation.activities
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mynotesapplication.R
+import com.example.mynotesapplication.adapters.NoteEntity
 import com.example.mynotesapplication.databinding.ActivityNotesListBinding
 import com.rafaykakar.notetakingapplication.adapters.NotesAdapter
-import com.rafaykakar.notetakingapplication.viewmodels.NoteListViewModel
-import com.rafaykakar.stickynoteapplication.database.NoteEntity
+import com.rafaykakar.notetakingapplication.presentation.viewmodels.NoteListViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*
 

@@ -95,6 +95,7 @@ android {
         }
     }
 
+
 //    sonarqube {
 //        properties {
 //            property("sonar.sources", "./src/main")
@@ -160,4 +161,7 @@ dependencies {
     testImplementation ("com.nhaarman.mockitokotlin2:mockito-kotlin:2.1.0")
     testImplementation ("org.mockito:mockito-inline:2.21.0")
     androidTestImplementation ("com.adevinta.android:barista:4.2.0")
+
+    testImplementation("com.lemonappdev:konsist:0.17.3")
+
 }

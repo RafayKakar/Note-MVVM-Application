@@ -1,7 +1,8 @@
-package com.rafaykakar.stickynoteapplication.database
+package com.rafaykakar.notetakingapplication.database
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.example.mynotesapplication.adapters.NoteEntity
 
 @Dao
 interface NotesDao {

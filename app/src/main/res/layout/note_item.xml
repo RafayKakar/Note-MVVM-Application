@@ -5,7 +5,7 @@
     <data>
         <variable
             name="model"
-            type="com.rafaykakar.stickynoteapplication.database.NoteEntity" />
+            type="com.example.mynotesapplication.adapters.NoteEntity" />
     </data>
 
     <androidx.cardview.widget.CardView

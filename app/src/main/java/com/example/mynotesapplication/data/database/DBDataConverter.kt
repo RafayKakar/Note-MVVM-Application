@@ -1,4 +1,4 @@
-package com.rafaykakar.notetakingapplication.database
+package com.rafaykakar.notetakingapplication.data.database
 
 import androidx.room.TypeConverter
 import java.util.*

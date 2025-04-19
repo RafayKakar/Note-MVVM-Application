@@ -1,5 +1,4 @@
-package com.rafaykakar.stickynoteapplication.application
-
+package com.example.mynotesapplication.presentation.application
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
 

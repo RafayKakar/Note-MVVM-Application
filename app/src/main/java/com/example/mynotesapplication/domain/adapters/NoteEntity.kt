@@ -1,4 +1,4 @@
-package com.rafaykakar.stickynoteapplication.database
+package com.example.mynotesapplication.adapters
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

@@ -1,10 +1,9 @@
-package com.rafaykakar.stickynoteapplication.repository
+package com.example.mynotesapplication.domain.adapters
 
 import androidx.lifecycle.LiveData
-import com.rafaykakar.stickynoteapplication.database.NoteEntity
-import com.rafaykakar.stickynoteapplication.database.NotesDao
+import com.example.mynotesapplication.adapters.NoteEntity
+import com.rafaykakar.notetakingapplication.database.NotesDao
 import javax.inject.Inject
-import javax.inject.Singleton
 
 
 class DatabaseRepository @Inject constructor(

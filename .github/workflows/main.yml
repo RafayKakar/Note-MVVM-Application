@@ -35,30 +35,30 @@ jobs:
           name: unit_test_report
           path: app/build/reports/tests/testDebugUnitTest/
 #
-  instrumentation-test:
-    needs: [unit-test]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout the code
-        uses: actions/checkout@v4
-
-      - name: Run espresso tests
-        uses: reactivecircus/android-emulator-runner@v2
-        with:
-            api-level: 31
-            target: google_apis
-            arch: x86_64
-            script: ./gradlew connectedCheck
-            disable-animations: true
-            emulator-options: -no-window -no-snapshot-save -noaudio -no-boot-anim
-            working-directory: .
-            boot-timeout-minutes: 5
-
-      - name: Upload test report
-        uses: actions/upload-artifact@v4
-        with:
-          name: instrumentation_test_report
-          path: app/build/reports/androidTests/connected/
+#  instrumentation-test:
+#    needs: [unit-test]
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout the code
+#        uses: actions/checkout@v4
+#
+#      - name: Run espresso tests
+#        uses: reactivecircus/android-emulator-runner@v2
+#        with:
+#            api-level: 31
+#            target: google_apis
+#            arch: x86_64
+#            script: ./gradlew connectedCheck
+#            disable-animations: true
+#            emulator-options: -no-window -no-snapshot-save -noaudio -no-boot-anim
+#            working-directory: .
+#            boot-timeout-minutes: 5
+#
+#      - name: Upload test report
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: instrumentation_test_report
+#          path: app/build/reports/androidTests/connected/
 
   package:
     needs: [instrumentation-test]

@@ -61,7 +61,7 @@ jobs:
 #          path: app/build/reports/androidTests/connected/
 
   package:
-    needs: [instrumentation-test]
+    needs: [unit-test]
     name: Generate APK
     #    if: ${{ !github.event.act }}
     runs-on: ubuntu-latest

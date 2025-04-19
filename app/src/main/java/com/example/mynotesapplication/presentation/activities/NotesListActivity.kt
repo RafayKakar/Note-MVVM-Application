@@ -75,6 +75,7 @@ class NotesListActivity : AppCompatActivity(), NotesAdapter.NoteSelection {
                     ItemTouchHelper.UP,
                     ItemTouchHelper.RIGHT
                 ) {
+
                 override fun onMove(
                     recyclerView: RecyclerView,
                     viewHolder: RecyclerView.ViewHolder,

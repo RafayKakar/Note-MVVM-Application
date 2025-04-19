@@ -13,8 +13,7 @@ class NotesAdapter(
     var context: Context,
     var noteslist: ArrayList<NoteEntity>,
     var noteSelection: NoteSelection
-) :
-    RecyclerView.Adapter<NotesAdapter.NotesViewHolder>() {
+) : RecyclerView.Adapter<NotesAdapter.NotesViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotesViewHolder {
         val binding = DataBindingUtil.inflate(

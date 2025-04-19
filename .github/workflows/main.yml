@@ -46,17 +46,18 @@ jobs:
         run: |
           LAST_COMMIT_MSG=$(git log -1 --pretty=%B)
           echo "Last commit message: $LAST_COMMIT_MSG"
-          
+
           if [[ "$LAST_COMMIT_MSG" == *"[auto-revert]"* ]]; then
             echo "Already auto-reverted. Skipping."
             exit 0
           fi
-          
+
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git revert --no-edit HEAD
           git commit --amend -m "Revert auto-failed commit [auto-revert]"
           git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:master
+          exit 1  # ⛔ Mark this job as failed so package is skipped
 
   package:
     needs: [ unit-test ]

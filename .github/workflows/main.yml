@@ -35,6 +35,13 @@ jobs:
         run: |
           ./gradlew test || echo "test_failed=true" >> $GITHUB_ENV
 
+      - name: Notify Slack on failure
+        if: failure()
+        run: |
+          curl -X POST -H 'Content-type: application/json' \
+          --data '{"text":"❌ Unit tests failed on `${{ github.ref }}`!"}' \
+          ${{ secrets.SLACK_WEBHOOK_URL }}
+
       - name: Upload test report
         uses: actions/upload-artifact@v4
         with:
@@ -57,13 +64,13 @@ jobs:
           git revert --no-edit HEAD
           git commit --amend -m "Revert auto-failed commit [auto-revert]"
           git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:master
-          exit 1  # ⛔ Mark this job as failed so package is skipped
+          exit 1  #  Mark this job as failed so package is skipped
 
   package:
     needs: [ unit-test ]
-    name: Generate APK
+    #    if: success()  #  Skip if unit-test fails or reverts
     runs-on: ubuntu-latest
-    if: ${{ !contains(github.event.head_commit.message, '[auto-revert]') }}
+    name: Generate APK
     steps:
       - name: Checkout the code
         uses: actions/checkout@v4

@@ -30,26 +30,25 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@v4
 
+#      - name: Run tests
+#        id: run_tests
+#        run: |
+#          ./gradlew test || echo "test_failed=true" >> $GITHUB_ENV
+
       - name: Run tests
         id: run_tests
-        run: |
-          ./gradlew test || echo "test_failed=true" >> $GITHUB_ENV
+        continue-on-error: true
+        run: ./gradlew test
 
       - name: Send Slack Notification on Test Failure
-        if: env.test_failed == 'true'
+        if: steps.run_tests.outcome == 'failure'
         run: |
-            curl -X POST -H 'Content-type: application/json' \
-            --data '{"text":"❌ Unit tests failed in `${{ github.repository }}` on `${{ github.ref_name }}`.\nCheck the report: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"}' \
-            ${{ secrets.SLACK_WEBHOOK_URL }}
-
-      - name: Upload test report
-        uses: actions/upload-artifact@v4
-        with:
-          name: unit_test_report
-          path: app/build/reports/tests/testDebugUnitTest/
+          curl -X POST -H 'Content-type: application/json' \
+          --data '{"text":"❌ Unit tests failed in `${{ github.repository }}` on `${{ github.ref_name }}`.\n🔗 <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|View build logs>"}' \
+          ${{ secrets.SLACK_WEBHOOK_URL }}
 
       - name: Revert commit if tests failed
-        if: env.test_failed == 'true'
+        if: steps.run_tests.outcome == 'failure'
         run: |
           LAST_COMMIT_MSG=$(git log -1 --pretty=%B)
           echo "Last commit message: $LAST_COMMIT_MSG"
@@ -64,7 +63,7 @@ jobs:
           git revert --no-edit HEAD
           git commit --amend -m "Revert auto-failed commit [auto-revert]"
           git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:master
-          exit 1  #  Mark this job as failed so package is skipped
+          exit 1
 
   package:
     needs: [ unit-test ]

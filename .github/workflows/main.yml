@@ -35,12 +35,12 @@ jobs:
         run: |
           ./gradlew test || echo "test_failed=true" >> $GITHUB_ENV
 
-      - name: Notify Slack on failure
-        if: failure()
+      - name: Send Slack Notification on Test Failure
+        if: env.test_failed == 'true'
         run: |
-          curl -X POST -H 'Content-type: application/json' \
-          --data '{"text":"❌ Unit tests failed on `${{ github.ref }}`!"}' \
-          ${{ secrets.SLACK_WEBHOOK_URL }}
+            curl -X POST -H 'Content-type: application/json' \
+            --data '{"text":"❌ Unit tests failed in `${{ github.repository }}` on `${{ github.ref_name }}`.\nCheck the report: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"}' \
+            ${{ secrets.SLACK_WEBHOOK_URL }}
 
       - name: Upload test report
         uses: actions/upload-artifact@v4

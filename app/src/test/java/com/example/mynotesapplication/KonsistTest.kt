@@ -1,5 +1,6 @@
 package com.example.mynotesapplication
 
+import androidx.room.Dao
 import com.lemonappdev.konsist.api.Konsist
 import com.lemonappdev.konsist.api.architecture.KoArchitectureCreator.assertArchitecture
 import com.lemonappdev.konsist.api.architecture.Layer
@@ -9,12 +10,13 @@ import com.lemonappdev.konsist.api.ext.list.types
 import com.lemonappdev.konsist.api.ext.list.withGeneric
 import com.lemonappdev.konsist.api.verify.assertFalse
 import org.junit.Test
+import org.mockito.kotlin.mock
 import org.mockito.kotlin.stub
 
-//class KonsistTest {
-//
-//    val appPackageName = BuildConfig.APPLICATION_ID
-//
+class KonsistTest {
+
+    val appPackageName = BuildConfig.APPLICATION_ID
+
 //    @Test
 //    fun testArchitecture() {
 //        Konsist.scopeFromProject().assertArchitecture {
@@ -49,4 +51,4 @@ import org.mockito.kotlin.stub
 //                it.hasNameEndingWith("Repository") || it.hasNameEndingWith("UseCase")
 //            }
 //    }
-//}
+}

@@ -10,6 +10,7 @@ import javax.inject.Inject
 class NoteEditorViewModel @Inject constructor(private val dbrepository: DatabaseRepository) :
     ViewModel() {
 
+    var flag = false
 
     suspend fun addNote(noteEntity: NoteEntity) {
         return dbrepository.addNote(noteEntity)

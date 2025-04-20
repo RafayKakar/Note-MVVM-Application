@@ -11,6 +11,7 @@ on:
 #  contents: write  # Needed to push reverts
 
 jobs:
+
   lint:
     runs-on: ubuntu-latest
     steps:

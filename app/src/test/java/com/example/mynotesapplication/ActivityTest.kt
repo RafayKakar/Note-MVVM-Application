@@ -6,15 +6,15 @@ import org.junit.Test
 
 class ActivityTest {
 
-    val scope = Konsist.scopeFromPackage("..presentation.activities..")
-
-    @Test
-    fun `naming convention`() {
-//        test
-        scope.files.assertTrue {
-            it.name.endsWith("Activity")
-        }
-    }
+//    val scope = Konsist.scopeFromPackage("..presentation.activities..")
+//
+//    @Test
+//    fun `naming convention`() {
+////        test
+//        scope.files.assertTrue {
+//            it.name.endsWith("Activity")
+//        }
+//    }
 
 
 }

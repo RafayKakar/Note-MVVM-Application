@@ -10,7 +10,6 @@ class ActivityTest {
 
     @Test
     fun `naming convention`() {
-//        test
         scope.files.assertTrue {
             it.name.endsWith("Activity")
         }
